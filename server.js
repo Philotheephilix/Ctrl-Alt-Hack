@@ -69,12 +69,14 @@ app.get("/dashboard", (req, res) => {
   res.render("dashboard.ejs", { user: req.user });
 });
 
-app.get("/logout", (req, res) => {
-  req.logout((err) => {
+app.get("/logout", (req, res, next) => {
+  req.logout(function (err) {
     if (err) {
       return next(err);
     }
-    res.redirect("/");
+    req.session.destroy(() => {
+      res.redirect("/");
+    });
   });
 });
 
