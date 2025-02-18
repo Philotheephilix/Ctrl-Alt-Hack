@@ -4,11 +4,54 @@ import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
+import { Sequelize, DataTypes } from "sequelize";
 
 dotenv.config();
 
 const app = express();
 const port = 3000;
+
+// Initialize Sequelize to connect to PostgreSQL
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: "postgres",
+  protocol: "postgres",
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
+});
+
+// Test the database connection
+sequelize.authenticate()
+  .then(() => console.log('Database connected successfully'))
+  .catch(err => console.log('Error connecting to the database: ', err));
+
+// Define User model to store Google profile data
+const User = sequelize.define('User', {
+  googleId: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+  },
+  displayName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  imageUrl: {
+    type: DataTypes.STRING,
+  },
+}, {
+  timestamps: true,
+});
+
+// Sync the model with the database
+sequelize.sync();
 
 // Session setup
 app.use(
@@ -18,7 +61,7 @@ app.use(
     saveUninitialized: true,
   })
 );
-
+app.use(express.static('public'));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -30,18 +73,40 @@ passport.use(
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: process.env.GOOGLE_CALLBACK_URL,
     },
-    (accessToken, refreshToken, profile, done) => {
-      return done(null, profile);
+    async (accessToken, refreshToken, profile, done) => {
+      try {
+        // Check if the user already exists in the database
+        let user = await User.findOne({ where: { googleId: profile.id } });
+
+        if (!user) {
+          // If the user doesn't exist, create a new user
+          user = await User.create({
+            googleId: profile.id,
+            displayName: profile.displayName,
+            email: profile.emails[0].value,
+            imageUrl: profile.photos[0].value,
+          });
+        }
+
+        return done(null, user);
+      } catch (err) {
+        return done(err);
+      }
     }
   )
 );
 
 passport.serializeUser((user, done) => {
-  done(null, user);
+  done(null, user.id);
 });
 
-passport.deserializeUser((user, done) => {
-  done(null, user);
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findByPk(id);
+    done(null, user);
+  } catch (err) {
+    done(err);
+  }
 });
 
 // Routes

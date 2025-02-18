@@ -3,12 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google OAuth Login</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>Ctrl+Alt+Hack - Hackathon</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script>
+        function updateCountdown() {
+            const eventDate = new Date('February 20, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = eventDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            if (timeLeft > 0) {
+                setTimeout(updateCountdown, 1000);
+            } else {
+                document.getElementById("countdown").innerHTML = "Hackathon has started!";
+            }
+        }
+    </script>
 </head>
-<body>
-    <div class="container">
-        <h1>Welcome to Student Login</h1>
+<body onload="updateCountdown()">
+    <div class="hero-section">
+        <img src="/images/logo.png" alt="Hackathon Logo" class="logo">
+        <h1>Ctrl+Alt+Hack 2025</h1>
+        <p class="tagline">Code. Innovate. Hack.</p>
+        <div class="countdown-container">
+            <h2>Event Begins In:</h2>
+            <div id="countdown" class="countdown-timer"></div>
+        </div>
         <a href="/auth/google" class="login-btn">Login with Google</a>
     </div>
 </body>
