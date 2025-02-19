@@ -6,7 +6,6 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import pkg from 'pg';
 const { Client } = pkg;
-// import { Sequelize, DataTypes } from "sequelize"; // Commented out
 
 dotenv.config();
 
@@ -87,8 +86,15 @@ app.get(
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
-  (req, res) => {
+  async (req, res) => {
     // Successful authentication, redirect to dashboard.
+
+    try {
+      await db.query("INSERT INTO students (username, email) VALUES ($1, $2)", [req.user.displayName, req.user.emails[0].value]);
+    } catch (err) {
+        console.log(err);
+    }
+
     res.redirect("/dashboard");
   }
 );
@@ -97,7 +103,6 @@ app.get("/dashboard", (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect("/");
   }
-  console.log("user: "+req.user);
   res.render("dashboard.ejs", { user: req.user });
 });
 
