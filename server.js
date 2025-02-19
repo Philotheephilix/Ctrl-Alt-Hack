@@ -122,14 +122,20 @@ app.post("/submit", async (req, res) => {
     return res.status(401).json({ error: "Unauthorized" });
   }
   const { teamName, projectTitle, projectDescription, demoLink, repoLink } = req.body;
-  const email = req.user.emails[0].value;
   try {
-    /*
-    await db.query(
-      "INSERT INTO projects (team_name, project_link, project_description, submitted_by) VALUES ($1, $2, $3, $4)",
-      [teamName, projectLink, projectDescription, email]
+    // Check if the team already submitted
+    const result = await db.query(
+      "SELECT * FROM submission WHERE team_name = $1 OR repo_url = $2 OR demo_url = $3",
+      [teamName, repoLink, demoLink]
     );
-    */
+    if (result.rows.length > 0) {
+      return res.status(400).json({ error: "Submission already exists for this team!" });
+    }
+    // Insert new submission if no duplicate found
+    await db.query(
+      "INSERT INTO submission (team_name, project_title, project_description, demo_url, repo_url) VALUES ($1, $2, $3, $4, $5)",
+      [teamName, projectTitle, projectDescription, demoLink, repoLink]
+    );
     res.redirect("/dashboard");
   } catch (err) {
     console.error("Submission Error:", err);
