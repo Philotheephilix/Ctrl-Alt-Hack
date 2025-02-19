@@ -21,7 +21,7 @@ const port = 3000 || process.env.PORT;
 
 // supabase
 const db = new Client({
-  connectionString: process.env.SUPABASE_SESSION_POOLER,
+  connectionString: process.env.SUPABASE_URL,
   ssl: {
       rejectUnauthorized: false,
   }
