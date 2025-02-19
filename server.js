@@ -149,13 +149,12 @@ app.post("/feedback", async (req, res) => {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  const { feedback } = req.body;
+  const content = req.body.feedback;
+  const username = req.user.displayName;
   const email = req.user.emails[0].value;
 
   try {
-    /*
-    await db.query("INSERT INTO feedback (email, feedback_text) VALUES ($1, $2)", [email, feedback]);
-    */
+    await db.query("INSERT INTO feedback (username, email, content) VALUES ($1, $2, $3)", [username, email, content]);
     res.redirect("/dashboard");
   } catch (err) {
     console.error("Feedback Error:", err);
