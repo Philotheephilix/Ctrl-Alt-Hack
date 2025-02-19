@@ -4,11 +4,29 @@ import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
+import pkg from 'pg';
+const { Client } = pkg;
+// import { Sequelize, DataTypes } from "sequelize"; // Commented out
 
 dotenv.config();
 
 const app = express();
 const port = 3000;
+
+// const db = new Client({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: {
+//       rejectUnauthorized: false,
+//   }
+// });
+const db = new Client({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+});
+db.connect();
 
 // Session setup
 app.use(
@@ -18,6 +36,10 @@ app.use(
     saveUninitialized: true,
   })
 );
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.set("view engine", "ejs");
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -30,8 +52,12 @@ passport.use(
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: process.env.GOOGLE_CALLBACK_URL,
     },
-    (accessToken, refreshToken, profile, done) => {
-      return done(null, profile);
+    async (accessToken, refreshToken, profile, done) => {
+      try {
+        return done(null, profile); // Temporary placeholder
+      } catch (err) {
+        return done(err);
+      }
     }
   )
 );
@@ -40,8 +66,12 @@ passport.serializeUser((user, done) => {
   done(null, user);
 });
 
-passport.deserializeUser((user, done) => {
-  done(null, user);
+passport.deserializeUser(async (user, done) => {
+  try {
+    done(null, user);
+  } catch (err) {
+    done(err);
+  }
 });
 
 // Routes
@@ -58,6 +88,7 @@ app.get(
   "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
   (req, res) => {
+    // Successful authentication, redirect to dashboard.
     res.redirect("/dashboard");
   }
 );
@@ -66,6 +97,7 @@ app.get("/dashboard", (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect("/");
   }
+  console.log("user: "+req.user);
   res.render("dashboard.ejs", { user: req.user });
 });
 
