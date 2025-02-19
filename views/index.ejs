@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,5 +36,102 @@
         </div>
         <a href="/auth/google" class="login-btn">Login with Google</a>
     </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ctrl+Alt+Hack</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <div class="head2 fade-in">
+                <h2 class="subtitle">Department of CSE Presents</h2>
+                <h1 class="title">Ctrl+Alt+Hack</h1>
+                <button  class="login-btn fade-in">Login</button>
+            </div>
+
+            
+
+            <div class="countdown-wrapper fade-in">
+                <h3 class="countdown-title">System Booting... Hackathon Begins In:</h3>
+                <div id="countdown" class="countdown"></div>
+            </div>
+        </div>
+
+        <section class="dates fade-in">
+            <h2 class="section-title">Innovate & Build — Hack the Retro Way!</h2>
+            <p class="section-text">
+                Event Starts: <strong>February 20, 2025</strong> at <strong>10:10 AM</strong> <br>
+                Event Ends: <strong>February 22, 2025</strong>
+            </p>
+        </section>
+
+        <section class="sponsors fade-in">
+            <h2 class="section-title">Our Sponsors</h2>
+            <div class="sponsor-boxes">
+                <% ["poorvika.png", "blackthunder.png", "xyz.png"].forEach((image) => { %>
+                    <div class="sponsor-box slide-in" style="background-image: url('/images/<%= image %>');"></div>
+                <% }) %>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date("2025-02-20T10:10:00").getTime();
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((difference / (1000 * 60)) % 60);
+                const seconds = Math.floor((difference / 1000) % 60);
+                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            } else {
+                document.getElementById("countdown").innerHTML = "Hackathon Started!";
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray(".fade-in").forEach((el) => {
+            gsap.from(el, {
+                opacity: 0,
+                y: 50,
+                duration: 1.5,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse",
+                },
+            });
+        });
+        gsap.utils.toArray(".slide-in").forEach((el) => {
+            gsap.from(el, {
+                x: 200,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse",
+                },
+            });
+        });
+    </script>
 </body>
 </html>

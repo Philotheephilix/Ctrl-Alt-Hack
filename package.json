@@ -21,6 +21,7 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
     "pg": "^8.13.3",
+    "railway": "^2.0.17",
     "sequelize": "^6.37.5"
   }
 }

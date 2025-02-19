@@ -4,13 +4,14 @@ import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
-import { Sequelize, DataTypes } from "sequelize";
+// import { Sequelize, DataTypes } from "sequelize"; // Commented out
 
 dotenv.config();
 
 const app = express();
 const port = 3000;
 
+/*
 // Initialize Sequelize to connect to PostgreSQL
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: "postgres",
@@ -52,6 +53,7 @@ const User = sequelize.define('User', {
 
 // Sync the model with the database
 sequelize.sync();
+*/
 
 // Session setup
 app.use(
@@ -75,6 +77,7 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
+        /*
         // Check if the user already exists in the database
         let user = await User.findOne({ where: { googleId: profile.id } });
 
@@ -89,6 +92,8 @@ passport.use(
         }
 
         return done(null, user);
+        */
+        return done(null, profile); // Temporary placeholder
       } catch (err) {
         return done(err);
       }
@@ -102,8 +107,8 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser(async (id, done) => {
   try {
-    const user = await User.findByPk(id);
-    done(null, user);
+    // const user = await User.findByPk(id); // Commented out
+    done(null, id); // Temporary placeholder
   } catch (err) {
     done(err);
   }
