@@ -89,18 +89,13 @@ app.get(
   passport.authenticate("google", { failureRedirect: "/" }),
   async (req, res) => {
     try {
-      // Check if user already exists
       const existingUser = await db.query("SELECT * FROM students WHERE email = $1", [req.user.emails[0].value]);
-
       if (existingUser.rows.length === 0) {
-        // Insert new user only if they don't exist
         await db.query("INSERT INTO students (username, email) VALUES ($1, $2)", [req.user.displayName, req.user.emails[0].value]);
       }
     } catch (err) {
       console.error("Database Error:", err);
     }
-
-    // Redirect to dashboard after authentication
     res.redirect("/dashboard");
   }
 );
