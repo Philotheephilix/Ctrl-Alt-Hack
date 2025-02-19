@@ -10,7 +10,7 @@ const { Client } = pkg;
 dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = 3000 || process.env.PORT;
 
 const db = new Client({
   connectionString: process.env.DATABASE_URL,
