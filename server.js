@@ -4,36 +4,21 @@ import express from "express";
 import session from "express-session";
 import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
-import pkg from "pg";
-
+import dotenv from "dotenv";
+import bodyParser from "body-parser";
+import pkg from 'pg';
 const { Client } = pkg;
+
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// const db = new Client({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: {
-//       rejectUnauthorized: false,
-//   }
-// });
-
-// supabase
+// Database Connection (Supabase/PostgreSQL) - COMMENTED OUT
 const db = new Client({
   connectionString: process.env.SUPABASE_URL,
-  ssl: {
-      rejectUnauthorized: false,
-  }
+  ssl: { rejectUnauthorized: false },
 });
-
-// const db = new Client({
-//   user: process.env.DB_USER,
-//   host: process.env.DB_HOST,
-//   database: process.env.DB_NAME,
-//   password: process.env.DB_PASSWORD,
-//   port: process.env.DB_PORT,
-// });
 db.connect();
 
 // Session Setup
@@ -106,11 +91,11 @@ app.get(
   passport.authenticate("google", { failureRedirect: "/" }),
   async (req, res) => {
     // Successful authentication, redirect to dashboard.
-    // try {
-    //   await db.query("INSERT INTO students (username, email) VALUES ($1, $2)", [req.user.displayName, req.user.emails[0].value]);
-    // } catch (err) {
-    //     console.log(err);
-    // }
+    try {
+      await db.query("INSERT INTO students (username, email) VALUES ($1, $2)", [req.user.displayName, req.user.emails[0].value]);
+    } catch (err) {
+        console.log(err);
+    }
     res.redirect("/dashboard");
   }
 );
