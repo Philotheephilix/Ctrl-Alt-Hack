@@ -12,12 +12,12 @@ dotenv.config();
 const app = express();
 const port = 3000 || process.env.PORT;
 
-const db = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-      rejectUnauthorized: false,
-  }
-});
+// const db = new Client({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: {
+//       rejectUnauthorized: false,
+//   }
+// });
 
 // render pg
 // const db = new Client({
@@ -26,6 +26,14 @@ const db = new Client({
 //       rejectUnauthorized: false,
 //   }
 // });
+
+// supabase
+const db = new Client({
+  connectionString: process.env.SUPABASE_URL,
+  ssl: {
+      rejectUnauthorized: false,
+  }
+});
 
 // const db = new Client({
 //   user: process.env.DB_USER,
@@ -97,11 +105,11 @@ app.get(
   passport.authenticate("google", { failureRedirect: "/" }),
   async (req, res) => {
     // Successful authentication, redirect to dashboard.
-    // try {
-    //   await db.query("INSERT INTO students (username, email) VALUES ($1, $2)", [req.user.displayName, req.user.emails[0].value]);
-    // } catch (err) {
-    //     console.log(err);
-    // }
+    try {
+      await db.query("INSERT INTO students (username, email) VALUES ($1, $2)", [req.user.displayName, req.user.emails[0].value]);
+    } catch (err) {
+        console.log(err);
+    }
     res.redirect("/dashboard");
   }
 );
