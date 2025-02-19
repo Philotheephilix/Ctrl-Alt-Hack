@@ -12,19 +12,28 @@ dotenv.config();
 const app = express();
 const port = 3000;
 
+const db = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+      rejectUnauthorized: false,
+  }
+});
+
+// render pg
 // const db = new Client({
-//   connectionString: process.env.DATABASE_URL,
+//   connectionString: process.env.DATABASE_URL1,
 //   ssl: {
 //       rejectUnauthorized: false,
 //   }
 // });
-const db = new Client({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
-});
+
+// const db = new Client({
+//   user: process.env.DB_USER,
+//   host: process.env.DB_HOST,
+//   database: process.env.DB_NAME,
+//   password: process.env.DB_PASSWORD,
+//   port: process.env.DB_PORT,
+// });
 db.connect();
 
 // Session setup
@@ -88,13 +97,11 @@ app.get(
   passport.authenticate("google", { failureRedirect: "/" }),
   async (req, res) => {
     // Successful authentication, redirect to dashboard.
-
-    try {
-      await db.query("INSERT INTO students (username, email) VALUES ($1, $2)", [req.user.displayName, req.user.emails[0].value]);
-    } catch (err) {
-        console.log(err);
-    }
-
+    // try {
+    //   await db.query("INSERT INTO students (username, email) VALUES ($1, $2)", [req.user.displayName, req.user.emails[0].value]);
+    // } catch (err) {
+    //     console.log(err);
+    // }
     res.redirect("/dashboard");
   }
 );
