@@ -1,139 +1,104 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ctrl+Alt+Hack - Hackathon</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <script>
-        function updateCountdown() {
-            const eventDate = new Date('February 20, 2025 00:00:00').getTime();
-            const now = new Date().getTime();
-            const timeLeft = eventDate - now;
-
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            if (timeLeft > 0) {
-                setTimeout(updateCountdown, 1000);
-            } else {
-                document.getElementById("countdown").innerHTML = "Hackathon has started!";
-            }
-        }
-    </script>
-</head>
-<body onload="updateCountdown()">
-    <div class="hero-section">
-        <img src="/images/logo.png" alt="Hackathon Logo" class="logo">
-        <h1>Ctrl+Alt+Hack 2025</h1>
-        <p class="tagline">Code. Innovate. Hack.</p>
-        <div class="countdown-container">
-            <h2>Event Begins In:</h2>
-            <div id="countdown" class="countdown-timer"></div>
-        </div>
-        <a href="/auth/google" class="login-btn">Login with Google</a>
-    </div>
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ctrl+Alt+Hack</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ctrl+Alt+Hack</title>
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <div class="main-container">
-        <div class="container">
-            <div class="head2 fade-in">
-                <h2 class="subtitle">Department of CSE Presents</h2>
-                <h1 class="title">Ctrl+Alt+Hack</h1>
-                <!-- <form action="/auth/google" method="post">
-                    <input type="submit" class="login-btn fade-in" value="Login">
-                </form> -->
-                <button  class="login-btn fade-in"><a href="/auth/google" style="text-decoration: none;">Login</a></button>
-                <!-- <button  class="login-btn fade-in">Login</button> -->
-            </div>
+  <div class="main-container">
+    <div class="container">
+      <div class="header">
+        <h2 class="subtitle">Department of CSE Presents</h2>
+        <h1 class="title">Ctrl+Alt+Hack</h1>
+      </div>
 
-            <div class="countdown-wrapper fade-in">
-                <h3 class="countdown-title">System Booting... Hackathon Begins In:</h3>
-                <div id="countdown" class="countdown"></div>
-            </div>
+      <button class="login-btn"><a href="/auth/google" style="text-decoration: none;">Login</a></button>
+
+      <div class="countdown-wrapper">
+        <h3 class="countdown-title">System Booting... Hackathon Begins In:</h3>
+        <div class="countdown">
+          <span id="days"><%= countdown.days %></span>d
+          <span id="hours"><%= countdown.hours %></span>h
+          <span id="minutes"><%= countdown.minutes %></span>m
+          <span id="seconds"><%= countdown.seconds %></span>s
         </div>
-
-        <section class="dates fade-in">
-            <h2 class="section-title">Innovate & Build — Hack the Retro Way!</h2>
-            <p class="section-text">
-                Event Starts: <strong>February 20, 2025</strong> at <strong>10:10 AM</strong> <br>
-                Event Ends: <strong>February 22, 2025</strong>
-            </p>
-        </section>
-
-        <section class="sponsors fade-in">
-            <h2 class="section-title">Our Sponsors</h2>
-            <div class="sponsor-boxes">
-                <% ["poorvika.png", "blackthunder.png", "xyz.png"].forEach((image) => { %>
-                    <div class="sponsor-box slide-in" style="background-image: url('/images/<%= image %>');"></div>
-                <% }) %>
-            </div>
-        </section>
+      </div>
     </div>
 
-    <script>
-        function updateCountdown() {
-            const targetDate = new Date("2025-02-20T10:10:00").getTime();
-            const now = new Date().getTime();
-            const difference = targetDate - now;
+    <section class="about">
+      <h2 class="section-title">Innovate & Build — Hack the Retro Way!</h2>
+      <p class="section-text">
+        A 36 Hour InterDepartmental Hackathon <br />
+        Date: <strong>20-02-2025 to 22-02-2025</strong>
+      </p>
+      
+      <div class="prize-container">
+        <div class="prizeinner">
+          <img class="prize-pool-image" src="/images/podium.png" alt="Prize Pool" />
+          <h3 class="prize-pool-text">₹25,000 Prize Pool</h3>
+        </div>
+        <div class="curve-box">
+          <h4>What You Can Build:</h4>
+          <ul>
+            <li>AI/ML🤖</li>
+            <li>Web3 & Blockchain🪙</li>
+            <li>Cybersecurity🧑‍💻</li>
+            <li>IoT & Robotics📲</li>
+            <li>Game Development🎮</li>
+            <li>Fintech🏦</li>
+            <li>HealthTech🏥</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-            if (difference > 0) {
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-                const minutes = Math.floor((difference / (1000 * 60)) % 60);
-                const seconds = Math.floor((difference / 1000) % 60);
-                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            } else {
-                document.getElementById("countdown").innerHTML = "Hackathon Started!";
-            }
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+    <section class="sponsors">
+      <div class="organized-by">
+        <h3 class="organiser">
+          Organized by Department of CSE in collaboration with IIC
+        </h3>
+        <div class="logodiv">
+          <img src="/images/licet.jpg" alt="LICET Logo" class="licet-logo" />
+          <img src="/images/iic.png" alt="IIC Logo" class="iic-logo" />
+        </div>
+      </div>
 
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.utils.toArray(".fade-in").forEach((el) => {
-            gsap.from(el, {
-                opacity: 0,
-                y: 50,
-                duration: 1.5,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 80%",
-                    toggleActions: "play none none reverse",
-                },
-            });
+      <h2 class="section-title">Our Sponsors</h2>
+      <div class="sponsor-boxes">
+        <div class="sponsor-box" style="background-image: url('/images/poorvika.png')"></div>
+        <div class="sponsor-box" style="background-image: url('/images/blackthunder.png')"></div>
+        <div class="sponsor-box" style="background-image: url('/images/kaar.jpg')"></div>
+        <div class="sponsor-box" style="background-image: url('/images/xyz.png')"></div>
+      </div>
+
+      <div class="footercenter">
+        <div class="contact-info">
+          <h3>Contact Us</h3>
+          <p><strong>Name:</strong> Sairam M R</p>
+          <p><strong>Phone:</strong> +91 93421 99098</p>
+          <p><strong>Email:</strong> sairam.26csb@licet.ac.in</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function updateCountdown() {
+      fetch("/")
+        .then(response => response.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, "text/html");
+          document.getElementById("days").innerText = doc.getElementById("days").innerText;
+          document.getElementById("hours").innerText = doc.getElementById("hours").innerText;
+          document.getElementById("minutes").innerText = doc.getElementById("minutes").innerText;
+          document.getElementById("seconds").innerText = doc.getElementById("seconds").innerText;
         });
-        gsap.utils.toArray(".slide-in").forEach((el) => {
-            gsap.from(el, {
-                x: 200,
-                opacity: 0,
-                duration: 1.2,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 85%",
-                    toggleActions: "play none none reverse",
-                },
-            });
-        });
-    </script>
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
