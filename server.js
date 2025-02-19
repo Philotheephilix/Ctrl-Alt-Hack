@@ -6,36 +6,55 @@ import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
-import pkg from 'pg';
-const { Client } = pkg;
+// import { Sequelize, DataTypes } from "sequelize"; // Commented out
 
 dotenv.config();
 const app = express();
-const port = 3000 || process.env.PORT;
+const port = 3000;
 
-const db = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
+/*
+// Initialize Sequelize to connect to PostgreSQL
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: "postgres",
+  protocol: "postgres",
+  dialectOptions: {
+    ssl: {
+      require: true,
       rejectUnauthorized: false,
-  }
+    },
+  },
 });
 
-// render pg
-// const db = new Client({
-//   connectionString: process.env.DATABASE_URL1,
-//   ssl: {
-//       rejectUnauthorized: false,
-//   }
-// });
+// Test the database connection
+sequelize.authenticate()
+  .then(() => console.log('Database connected successfully'))
+  .catch(err => console.log('Error connecting to the database: ', err));
 
-// const db = new Client({
-//   user: process.env.DB_USER,
-//   host: process.env.DB_HOST,
-//   database: process.env.DB_NAME,
-//   password: process.env.DB_PASSWORD,
-//   port: process.env.DB_PORT,
-// });
-db.connect();
+// Define User model to store Google profile data
+const User = sequelize.define('User', {
+  googleId: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+  },
+  displayName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  imageUrl: {
+    type: DataTypes.STRING,
+  },
+}, {
+  timestamps: true,
+});
+
+// Sync the model with the database
+sequelize.sync();
+*/
 
 // Session setup
 app.use(
@@ -46,10 +65,6 @@ app.use(
   })
 );
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.set("view engine", "ejs");
-
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -63,6 +78,22 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
+        /*
+        // Check if the user already exists in the database
+        let user = await User.findOne({ where: { googleId: profile.id } });
+
+        if (!user) {
+          // If the user doesn't exist, create a new user
+          user = await User.create({
+            googleId: profile.id,
+            displayName: profile.displayName,
+            email: profile.emails[0].value,
+            imageUrl: profile.photos[0].value,
+          });
+        }
+
+        return done(null, user);
+        */
         return done(null, profile); // Temporary placeholder
       } catch (err) {
         return done(err);
@@ -71,38 +102,18 @@ passport.use(
   )
 );
 
-// Serialize and Deserialize User
 passport.serializeUser((user, done) => {
-  done(null, user);
+  done(null, user.id);
 });
 
-passport.deserializeUser(async (user, done) => {
+passport.deserializeUser(async (id, done) => {
   try {
-    done(null, user);
+    // const user = await User.findByPk(id); // Commented out
+    done(null, id); // Temporary placeholder
   } catch (err) {
     done(err);
   }
 });
-
-// Hackathon Start Date (Adjust this date & time)
-const hackathonStart = new Date("2025-03-01T00:00:00Z"); // Change to your event start date
-
-// Function to calculate countdown
-const getCountdown = () => {
-  const now = new Date();
-  const timeDiff = hackathonStart - now;
-
-  if (timeDiff <= 0) {
-    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-  }
-
-  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
-  return { days, hours, minutes, seconds };
-};
 
 // Routes
 app.get("/", (req, res) => {
@@ -136,8 +147,8 @@ app.get("/dashboard", (req, res) => {
   res.render("dashboard", { user: req.user });
 });
 
-app.get("/logout", (req, res, next) => {
-  req.logout(function (err) {
+app.get("/logout", (req, res) => {
+  req.logout((err) => {
     if (err) {
       return next(err);
     }
