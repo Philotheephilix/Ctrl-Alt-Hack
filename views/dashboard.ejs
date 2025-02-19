@@ -69,11 +69,14 @@
     </section>
 
     <!-- Feedback Section -->
-    <section id="feedback" class="feedback-section hidden">
-        <h2>Feedback</h2>
-        <p>We value your feedback! Let us know your thoughts about the event, suggestions for improvement, or any other ideas.</p>
-        <textarea id="feedback-input" rows="4" placeholder="Enter your feedback here..."></textarea>
-        <button class="feedback-btn">Submit Feedback</button>
+    <section id="feedback" class="div-cont">
+        <h2 class="text-dark">Feedback</h2>
+        <form action="/submit-feedback" method="POST">
+            <div class="mb-3">
+                <textarea class="form-control" name="feedback" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success mt-3">Submit Feedback</button>
+        </form>
     </section>
 
     <script>
