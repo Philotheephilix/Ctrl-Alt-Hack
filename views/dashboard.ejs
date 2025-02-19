@@ -4,118 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles2.css">
+    <style>
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: -8px;
+            left: 10px;
+        }
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="/images/logo2.png" alt="Hackathon Logo"> Hackathon
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/images/logo.png" alt="Logo" style="width: 70px;height:80px;">
+                <span>Ctrl+Alt+Hack</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#submission">Submission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#feedback">Feedback</a></li>
+                    <li class="nav-item"><a class="btn btn-danger" href="/logout">Logout</a></li>
+                </ul>
+            </div>
         </div>
-        <ul class="nav-links">
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#submission" class="nav-link">Submission</a></li>
-            <li><a href="#feedback" class="nav-link">Feedback</a></li>
-            <li><a href="/logout" class="logout-btn">Logout</a></li>
-        </ul>
     </nav>
 
     <!-- Dashboard Section -->
-    <div class="dashboard-container">
-        <h1>Welcome, <%= user.displayName %>!</h1>
-        <p>Welcome to the Hackathon Dashboard. Ready to make some innovative creations?</p>
-
-        <!-- Hackathon Images -->
-        <div class="hackathon-images">
-            <img src="/images/hackathon1.jpg" alt="Hackathon Image 1">
-            <img src="/images/hackathon2.jpg" alt="Hackathon Image 2">
-        </div>
-
-        <!-- Countdown Timer -->
-        <div class="countdown-container">
-            <h2>Time Left:</h2>
-            <div id="countdown-timer">00:00:00</div>
-        </div>
+    <div class="container text-center mt-5 pt-5">
+        <h1 >Welcome, <%= user.displayName %>!</h1>
+        <p class="lead">Welcome to the Hackathon Dashboard. Ready to make some innovative creations?</p>
     </div>
 
-    <!-- About Section -->
-    <section id="about" class="about-section hidden">
-        <h2>About the Hackathon</h2>
+    <!-- Countdown Timer -->
+    <div class="container text-center mt-4">
+        <h2 class="text-warning">Time Left:</h2>
+        <div id="countdown-timer" class="fs-3 fw-bold text-light bg-dark p-3 rounded d-inline-block">00:00:00</div>
+    </div>
+
+    <!-- Sections -->
+    <section id="about" class="div-cont">
+        <h2 class="text-dark">About the Hackathon</h2>
         <p>Welcome to our hackathon event! This is an opportunity to innovate, create, and showcase your skills. We are excited to have you on board!</p>
+        
     </section>
 
-    <!-- Submission Section -->
-    <section id="submission" class="submission-section hidden">
-        <h2>Project Submission</h2>
-        <form action="/submit" method="POST" class="submission-form">
-
-            <label for="team-name">Team Name:</label>
-            <input type="text" id="team-name" name="teamName" required>
-
-            <label for="project-title">Project Title:</label>
-            <input type="text" id="project-title" name="projectTitle" required>
-
-            <label for="project-description">Project Description:</label>
-            <textarea id="project-description" name="projectDescription" rows="4" required></textarea>
-
-            <label for="project-link">Project Demonstration Link:</label>
-            <input type="url" id="project-link" name="demoLink" required>
-
-            <label for="repo-link">Repository Link:</label>
-            <input type="url" id="repo-link" name="repoLink" required>
-           
-            <button type="submit" class="submit-btn">Submit</button>
+    <section id="submission" class="div-cont">
+        <h2 class="text-dark">Project Submission</h2>
+        <form action="/submit" method="POST">
+            <div class="mb-3">
+                <label class="form-label">Team Name:</label>
+                <input type="text" class="form-control" name="teamName" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Project Title:</label>
+                <input type="text" class="form-control" name="project-title" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Project Description:</label>
+                <textarea class="form-control" name="project-description" rows="4" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Project Demonstration Link:</label>
+                <input type="url" class="form-control" name="project-link" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Repository Link:</label>
+                <input type="url" class="form-control" name="repo-link" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </section>
 
-    <!-- Feedback Section -->
     <section id="feedback" class="div-cont">
         <h2 class="text-dark">Feedback</h2>
-        <form action="/feedback" method="POST">
+        <form action="/submit-feedback" method="POST">
             <div class="mb-3">
                 <textarea class="form-control" name="feedback" rows="4" required></textarea>
             </div>
             <button type="submit" class="btn btn-success mt-3">Submit Feedback</button>
         </form>
     </section>
+    
 
     <script>
-        // Countdown Timer
         const countdownElement = document.getElementById("countdown-timer");
-        const eventTime = new Date("2025-02-22T00:00:00").getTime(); // Updated event date
-
+        const eventTime = new Date("2025-02-22T00:00:00").getTime();
         function updateCountdown() {
             const now = new Date().getTime();
             const difference = eventTime - now;
-
             if (difference <= 0) {
                 countdownElement.innerHTML = "Event Started!";
                 return;
             }
-
             const days = Math.floor(difference / (1000 * 60 * 60 * 24));
             const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
             countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
         }
-
-        // Update countdown every second
         setInterval(updateCountdown, 1000);
         updateCountdown();
-
-        // Show sections on nav link click
-        const navLinks = document.querySelectorAll(".nav-link");
-        const sections = document.querySelectorAll("section");
-
-        navLinks.forEach((link, index) => {
-            link.addEventListener("click", (e) => {
-                e.preventDefault();
-                sections.forEach((section) => section.classList.add("hidden")); // Hide all sections
-                sections[index].classList.remove("hidden"); // Show clicked section
-            });
-        });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
