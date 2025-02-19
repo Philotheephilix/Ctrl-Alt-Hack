@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-     font-family: 'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 /* Body */
@@ -77,13 +77,19 @@ body {
 
 /* Dashboard Container */
 .dashboard-container {
-    margin-top: 80px;
+    max-width: 900px; /* Adjust width as needed */
+    margin: 140px auto; /* Centers horizontally */
     padding: 40px;
+    text-align: center; /* Centers text inside */
+    /* Optional: Light background for better visibility */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds slight shadow */
 }
 
+
 .dashboard-container h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 3rem; /* Slightly larger font size */
+    margin-bottom: 20px; /* More spacing below the heading */
     color: #ffdd57;
 }
 
@@ -211,8 +217,6 @@ section {
         padding: 20px;
     }
 }
-
-
 
 @media (max-width: 480px) {
     .nav-links li {
