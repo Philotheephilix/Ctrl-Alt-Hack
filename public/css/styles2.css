@@ -10,7 +10,7 @@
 
 /* Body */
 body {
-    background: linear-gradient(to right, #000428, #004e92);
+    background: #ff3e1d;
     color: white;
     text-align: center;
     padding-top: 60px;
@@ -21,7 +21,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: space-between;
     padding: 15px 30px;
@@ -32,13 +32,13 @@ body {
 .logo {
     font-size: 2rem;
     font-weight: bold;
-    color: #ff9800;
+    color: #ffdd57;
     display: flex;
     align-items: center;
 }
 
 .logo img {
-    width: 80px; /* Adjust logo size */
+    width: 70px;
     margin-right: 10px;
 }
 
@@ -59,38 +59,41 @@ body {
 }
 
 .nav-links a:hover {
-    color: #ff9800;
+    color: #ffdd57;
 }
 
 .logout-btn {
     text-decoration: none;
     color: white;
-    background: #ff9800;
+    background: #ffdd57;
     padding: 10px 18px;
     border-radius: 5px;
     transition: 0.3s;
 }
 
 .logout-btn:hover {
-    background: #ff5722;
+    background: #ffab00;
 }
 
 /* Dashboard Container */
 .dashboard-container {
-    margin-top: 30px;
+    margin-top: 80px;
     padding: 40px;
 }
 
 .dashboard-container h1 {
     font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #ffdd57;
 }
 
 /* Images */
 .hackathon-images img {
     width: 100%;
-    max-width: 1000px;
+    max-width: 900px;
     border-radius: 10px;
-    margin: 20px 0;
+    margin: 20px 10px;
+    border: 4px solid #ffdd57;
 }
 
 /* Countdown Container */
@@ -101,6 +104,7 @@ body {
     display: inline-block;
     margin-top: 20px;
     font-size: 1.8rem;
+    color: #ffdd57;
 }
 
 /* Sections */
@@ -112,6 +116,7 @@ section {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     transition: opacity 0.5s ease-in-out;
+    border: 2px solid #ffdd57;
 }
 
 .hidden {
@@ -131,7 +136,8 @@ section {
 .submission-form label {
     font-size: 1.4rem;
     margin: 10px 0;
-    color: #ff9800;
+    color: #ffdd57;
+    text-align: left;
 }
 
 .submission-form input,
@@ -148,15 +154,16 @@ section {
 
 .submit-btn {
     margin-top: 15px;
-    background: #ff9800;
+    background: #ffdd57;
     padding: 12px;
     font-size: 1.2rem;
     border-radius: 5px;
     transition: 0.3s;
+    color: #000;
 }
 
 .submit-btn:hover {
-    background: #ff5722;
+    background: #ffab00;
 }
 
 /* Feedback Section */
@@ -172,21 +179,23 @@ section {
 
 .feedback-btn {
     margin-top: 15px;
-    background: #ff9800;
+    background: #ffdd57;
     padding: 12px;
     font-size: 1.2rem;
     border-radius: 5px;
     transition: 0.3s;
+    color: #000;
 }
 
 .feedback-btn:hover {
-    background: #ff5722;
+    background: #ffab00;
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
+        align-items: center;
     }
     .nav-links {
         margin-top: 10px;
