@@ -19,14 +19,6 @@ const port = 3000 || process.env.PORT;
 //   }
 // });
 
-// render pg
-// const db = new Client({
-//   connectionString: process.env.DATABASE_URL1,
-//   ssl: {
-//       rejectUnauthorized: false,
-//   }
-// });
-
 // supabase
 const db = new Client({
   connectionString: process.env.SUPABASE_URL,
