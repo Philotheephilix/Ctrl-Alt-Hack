@@ -1,217 +1,20 @@
-/* Import Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(to right, #000428, #004e92);
-    color: white;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90vh;
-    overflow: hidden;
-}
-
-/* Hero Section */
-/* .hero-section {
-    text-align: center;
-    max-width: 800px;
-    padding: 40px;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.6);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-    
-} */
-
-/* Logo */
-/* .logo {
-    width: 240px;
-    margin-bottom: 20px;
-    animation: fadeIn 1s ease-in-out;
-} */
-
-/* Title */
-/* h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
-} */
-
-/* Tagline */
-/* .tagline {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: #ff9800;
-} */
-
-/* Countdown Timer */
-/* .countdown-container {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-} */
-
-/* .countdown-timer {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #00ffea;
-    margin-top: 10px;
-} */
-
-/* Login Button
-.login-btn {
-    text-decoration: none;
-    color: white;
-    background: #ff9800;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(255, 152, 0, 0.5);
-    display: inline-block;
-    margin-top: 20px;
-} */
-/* 
-.login-btn:hover {
-    background: #ff5722;
-    box-shadow: 0 6px 15px rgba(255, 87, 34, 0.6);
-    transform: scale(1.1);
-} */
-
-/* Animations */
-/* @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-} */
-/* Large Screens (Desktops and Laptops) */
-/* @media (min-width: 1200px) {
-    .hero-section {
-        width: 60%;
-    }
-    h1 {
-        font-size: 4rem;
-    }
-    .tagline {
-        font-size: 2rem;
-    }
-    .countdown-timer {
-        font-size: 2.5rem;
-    }
-    .login-btn {
-        font-size: 1.4rem;
-        padding: 15px 30px;
-    }
-} */
-
-/* Tablets (768px - 1199px) */
-/* @media (max-width: 1199px) {
-    .hero-section {
-        width: 75%;
-        padding: 30px;
-    }
-    h1 {
-        font-size: 3rem;
-    }
-    .tagline {
-        font-size: 1.6rem;
-    }
-    .countdown-timer {
-        font-size: 1.8rem;
-    }
-    .login-btn {
-        font-size: 1.2rem;
-        padding: 12px 24px;
-    }
-} */
-
-/* Mobile Devices (Below 768px) */
-/* @media (max-width: 767px) {
-    .hero-section {
-        width: 90%;
-        padding: 20px;
-    }
-    .logo {
-        width: 200px; 
-    }
-    h1 {
-        font-size: 2.5rem;
-    }
-    .tagline {
-        font-size: 1.4rem;
-    }
-    .countdown-container {
-        font-size: 1.2rem;
-        padding: 10px;
-    }
-    .countdown-timer {
-        font-size: 1.5rem;
-    }
-    .login-btn {
-        font-size: 1rem;
-        padding: 10px 20px;
-    }
-} */
-
-/* Small Mobile Devices (Below 480px) */
-/* @media (max-width: 480px) {
-    .hero-section {
-        width: 95%;
-        padding: 15px;
-    }
-    .logo {
-        width: 180px;
-    }
-    h1 {
-        font-size: 2rem;
-    }
-    .tagline {
-        font-size: 1.2rem;
-    }
-    .countdown-timer {
-        font-size: 1.2rem;
-    }
-    .login-btn {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-    }
-}  */
-
-
 /* General Styles */
-/* Base Styles */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Courier New', Courier, monospace;
-    background: linear-gradient(to bottom, #FF3E1D, #FF541C, #CD191C);
+    background-image: url('/images/pixel.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: white;
     text-align: center;
     overflow-x: hidden;
     overflow-y: auto;
-}
-
-/* Landing Page */
-.container {
+  }
+  
+  /* Landing Page */
+  .container {
     position: relative;
     width: 100vw;
     min-height: 100vh;
@@ -220,19 +23,58 @@ body {
     justify-content: center;
     flex-direction: column;
     background: url('/images/bg.jpg') no-repeat center center/cover;
-}
-
-.head2 {
+  }
+  
+  .header {
     position: absolute;
     top: 5%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.login-btn {
-    
+  }
+  
+  .subtitle {
+    font-size: 2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  
+  .title {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-top: 15px;
+    text-transform: uppercase;
+  }
+  
+  /* Countdown */
+  .countdown-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  
+  .countdown-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .countdown {
+    font-size: 4.5rem;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    padding: 25px 40px;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px); /* Glass blur effect */
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    text-align: center;
+  }
+  
+  
+  /* Login Button */
+  .login-btn {
     padding: 15px 40px;
     font-size: 1.5rem;
     font-weight: bold;
@@ -242,69 +84,33 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-}
-
-.login-btn:hover {
+    margin-bottom: 20px;
+  }
+  
+  .login-btn:hover {
     background: black;
     color: white;
-}
-
-.subtitle {
-    font-size: 2rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-.title {
-    font-size: 5rem;
-    font-weight: bold;
-    margin-top: 15px;
-    text-transform: uppercase;
-}
-
-/* Countdown */
-.countdown-wrapper {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-}
-
-.countdown-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-.countdown {
-    font-size: 4.5rem;
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 25px 40px;
-    border-radius: 15px;
-    border: 2px solid white;
-}
-
-/* Login Button */
-
-
-/* About Section */
-.about {
+  }
+  
+  /* About Section */
+  .about {
     min-height: 100vh;
     padding: 50px;
-}
-
-.section-title {
+    
+  }
+  
+  .section-title {
     font-size: 3.5rem;
     margin-bottom: 20px;
-}
-
-.section-text {
-    font-size: 2rem;
-}
-
-/* Prize Pool & Curve Box */
-.prize-container {
+  }
+  
+  .section-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  /* Prize Pool & Curve Box in Horizontal Line */
+  .prize-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -312,19 +118,19 @@ body {
     gap: 50px;
     flex-wrap: wrap;
     margin-top: 20px;
-}
-
-.prize-pool-image {
+  }
+  
+  .prize-pool-image {
     max-width: 45%;
     margin-top: 10px;
-}
-
-.prize-pool-text {
+  }
+  
+  .prize-pool-text {
     font-size: 4rem;
     font-weight: bold;
-}
-
-.curve-box {
+  }
+  
+  .curve-box {
     padding: 20px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
@@ -333,119 +139,233 @@ body {
     width: 40%;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.curve-box h4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5%;;
+  }
+  
+  .curve-box h4 {
     font-size: 2rem;
     margin-bottom: 10px;
-}
-
-.curve-box ul {
+  }
+  
+  .curve-box ul {
     list-style: none;
     padding: 0;
-}
-
-.curve-box li {
+  }
+  
+  .curve-box li {
     font-size: 1.5rem;
     margin: 5px 0;
-}
-
-/* Sponsors Section */
-.sponsors {
-    min-height: 50vh;
+  }
+  
+  /* Sponsors Section */
+  .sponsors {
+    min-height: 100vh;
     padding: 50px;
-}
-
-.sponsor-boxes {
+  }
+  
+  .sponsor-boxes {
     display: flex;
     justify-content: center;
     gap: 30px;
-}
-
-.sponsor-box {
+  }
+  
+  .sponsor-box {
     width: 200px;
     height: 200px;
+    background: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
     border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+    object-fit: cover;
     background-size: cover;
     background-position: center;
+    border:2px solid white
+  }
+  
+  .sponsor-box:hover {
+    transform: scale(1.1);
+  }
+  
+  .organiser{
+    font-size: 5rem;
+  }
+  .organisertext{
+    font-size: 4rem;
+    font-weight: 800;
+  }
+  .prizeinner{
+    position: relative;
+    top:25px;
+  }
+  .licet-logo{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+  }
+  .logodiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+  }
+  .contact-info>*{
+    font-size: 2rem;
+  }
+  .contact-info{
     border: 2px solid white;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .title {
-        font-size: 4rem;
-    }
+    width:39%;
+    margin-top:30px;
+    border-radius: 30px;
+    
+  
+  }
+  .footercenter{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+   
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    /* Adjust header */
     .subtitle {
-        font-size: 1.8rem;
+      font-size: 1.6rem;
     }
-    .countdown {
-        font-size: 3.5rem;
-    }
-    .prize-pool-text {
-        font-size: 3rem;
-    }
-    .curve-box {
-        width: 60%;
-    }
-}
-
-@media (max-width: 768px) {
+  
     .title {
-        font-size: 3rem;
+      font-size: 3.5rem;
     }
-    .subtitle {
-        font-size: 1.5rem;
+  
+    /* Countdown Timer */
+    .countdown-title {
+      font-size: 2rem;
     }
+  
     .countdown {
-        font-size: 3rem;
-        padding: 15px 30px;
+      font-size: 3rem;
+      padding: 15px 30px;
     }
+  
+    /* Login Button */
     .login-btn {
-        font-size: 1.2rem;
-        padding: 12px 30px;
+      font-size: 1.2rem;
+      padding: 12px 30px;
     }
+  
+    /* About Section */
+    .section-title {
+      font-size: 2.5rem;
+    }
+  
+    .section-text {
+      font-size: 1.8rem;
+    }
+  
+    /* Prize Pool & Curve Box in Column for Mobile */
     .prize-container {
-        flex-direction: column;
+      flex-direction: column;
+      gap: 30px;
     }
+  
     .prize-pool-image {
-        max-width: 70%;
+      max-width: 80%;
     }
+  
     .prize-pool-text {
-        font-size: 2.5rem;
+      font-size: 3rem;
     }
+  
     .curve-box {
-        width: 80%;
+      width: 90%;
+      padding: 15px;
     }
+  
+    .curve-box h4 {
+      font-size: 1.8rem;
+    }
+  
+    .curve-box li {
+      font-size: 1.4rem;
+    }
+  
+    /* Sponsors Section */
+    .sponsors {
+      padding: 30px;
+    }
+  
+    .sponsor-boxes {
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  
     .sponsor-box {
-        width: 150px;
-        height: 150px;
+      width: 150px;
+      height: 150px;
     }
-}
-
-@media (max-width: 480px) {
+  
+    /* Organized By Section */
+    .organized-by {
+      flex-direction: column;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+  
+    .organisertext {
+      font-size: 2rem;
+    }
+  
+    .licet-logo, .iic-logo {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .logodiv {
+      gap: 20px;
+    }
+  
+    /* Contact Info */
+    .contact-info {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .contact-info h3 {
+      font-size: 2rem;
+    }
+  
+    .contact-info p {
+      font-size: 1.4rem;
+    }
+  
     .title {
-        font-size: 2.5rem;
+      font-size: 3rem; /* Reduced from 5rem */
+      font-weight: bold;
+      margin-top: 15px;
+      text-transform: uppercase;
+      word-wrap: break-word; /* Ensures wrapping */
+      text-align: center;
     }
-    .subtitle {
-        font-size: 1.2rem;
-    }
+    
+    /* Countdown Fix */
     .countdown {
-        font-size: 2.5rem;
-        padding: 10px 20px;
+      font-size: 3rem; /* Reduced from 4.5rem */
+      padding: 15px 30px; /* Reduced padding */
+      border-radius: 10px; /* Adjusted for a more compact look */
     }
-    .login-btn {
-        font-size: 1rem;
-        padding: 10px 25px;
-    }
-    .prize-pool-text {
-        font-size: 2rem;
-    }
-    .curve-box {
-        width: 90%;
-    }
-    .sponsor-box {
-        width: 120px;
-        height: 120px;
-    }
-}
+  }
+  /* Title Fix */
+  
+  
