@@ -1,3 +1,5 @@
+import bodyParser from "body-parser";
+import dotenv from "dotenv";
 import express from "express";
 import session from "express-session";
 import passport from "passport";
@@ -8,7 +10,6 @@ import pkg from 'pg';
 const { Client } = pkg;
 
 dotenv.config();
-
 const app = express();
 const port = 3000 || process.env.PORT;
 
@@ -41,7 +42,7 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
   })
 );
 app.use(express.static('public'));
@@ -70,6 +71,7 @@ passport.use(
   )
 );
 
+// Serialize and Deserialize User
 passport.serializeUser((user, done) => {
   done(null, user);
 });
@@ -82,9 +84,30 @@ passport.deserializeUser(async (user, done) => {
   }
 });
 
+// Hackathon Start Date (Adjust this date & time)
+const hackathonStart = new Date("2025-03-01T00:00:00Z"); // Change to your event start date
+
+// Function to calculate countdown
+const getCountdown = () => {
+  const now = new Date();
+  const timeDiff = hackathonStart - now;
+
+  if (timeDiff <= 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+
+  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+  return { days, hours, minutes, seconds };
+};
+
 // Routes
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+  const countdown = getCountdown();
+  res.render("index", { countdown });
 });
 
 app.get(
@@ -110,7 +133,7 @@ app.get("/dashboard", (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect("/");
   }
-  res.render("dashboard.ejs", { user: req.user });
+  res.render("dashboard", { user: req.user });
 });
 
 app.get("/logout", (req, res, next) => {
@@ -125,5 +148,5 @@ app.get("/logout", (req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`✅ Server running on http://localhost:${port}`);
 });
