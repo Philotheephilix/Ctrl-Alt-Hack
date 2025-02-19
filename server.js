@@ -6,7 +6,6 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import pkg from 'pg';
 const { Client } = pkg;
-// check
 
 dotenv.config();
 
