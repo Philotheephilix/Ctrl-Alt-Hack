@@ -12,20 +12,20 @@ dotenv.config();
 const app = express();
 const port = 3000 || process.env.PORT;
 
-const db = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-      rejectUnauthorized: false,
-  }
-});
-
-// render pg
 // const db = new Client({
-//   connectionString: process.env.DATABASE_URL1,
+//   connectionString: process.env.DATABASE_URL,
 //   ssl: {
 //       rejectUnauthorized: false,
 //   }
 // });
+
+// supabase
+const db = new Client({
+  connectionString: process.env.SUPABASE_URL,
+  ssl: {
+      rejectUnauthorized: false,
+  }
+});
 
 // const db = new Client({
 //   user: process.env.DB_USER,
