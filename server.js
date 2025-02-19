@@ -116,15 +116,13 @@ app.get("/logout", (req, res, next) => {
   });
 });
 
-// Project Submission Route - Database Code Commented Out
+// Project Submission
 app.post("/submit", async (req, res) => {
   if (!req.isAuthenticated()) {
     return res.status(401).json({ error: "Unauthorized" });
   }
-
-  const { teamName, projectLink, projectDescription } = req.body;
+  const { teamName, projectTitle, projectDescription, demoLink, repoLink } = req.body;
   const email = req.user.emails[0].value;
-
   try {
     /*
     await db.query(
