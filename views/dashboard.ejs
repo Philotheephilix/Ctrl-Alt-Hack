@@ -23,8 +23,19 @@
     <!-- Dashboard Section -->
     <div class="dashboard-container">
         <h1>Welcome, <%= user.displayName %>!</h1>
-        <p>Email: <%= user.emails[0].value %></p>
-        <a href="/logout" class="logout-btn">Logout</a>
+        <p>Welcome to the Hackathon Dashboard. Ready to make some innovative creations?</p>
+
+        <!-- Hackathon Images -->
+        <div class="hackathon-images">
+            <img src="/images/hackathon1.jpg" alt="Hackathon Image 1">
+            <img src="/images/hackathon2.jpg" alt="Hackathon Image 2">
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-container">
+            <h2>Time Left:</h2>
+            <div id="countdown-timer">00:00:00</div>
+        </div>
     </div>
 
     <!-- About Section -->
@@ -37,15 +48,22 @@
     <section id="submission" class="submission-section hidden">
         <h2>Project Submission</h2>
         <form action="/submit" method="POST" class="submission-form">
+
             <label for="team-name">Team Name:</label>
             <input type="text" id="team-name" name="teamName" required>
 
-            <label for="project-link">Project Demonstration Link:</label>
-            <input type="url" id="project-link" name="projectLink" required>
+            <label for="project-title">Project Title:</label>
+            <input type="text" id="project-title" name="project-title" required>
 
             <label for="project-description">Project Description:</label>
-            <textarea id="project-description" name="projectDescription" rows="4" required></textarea>
+            <textarea id="project-description" name="project-description" rows="4" required></textarea>
 
+            <label for="project-link">Project Demonstration Link:</label>
+            <input type="url" id="project-link" name="project-link" required>
+
+            <label for="repo-link">Repository Link:</label>
+            <input type="url" id="repo-link" name="repo-link" required>
+           
             <button type="submit" class="submit-btn">Submit</button>
         </form>
     </section>
