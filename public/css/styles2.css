@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Orbitron', sans-serif;
+     font-family: 'Courier New', Courier, monospace;
 }
 
 /* Body */
@@ -211,6 +211,8 @@ section {
         padding: 20px;
     }
 }
+
+
 
 @media (max-width: 480px) {
     .nav-links li {
