@@ -20,6 +20,15 @@ body {
   text-align: center;
   overflow-x: hidden;
   overflow-y: auto;
+  animation: fadeIn 2s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .container {
@@ -31,6 +40,16 @@ body {
   justify-content: center;
   flex-direction: column;
   background: url('/images/bg.jpg') no-repeat center center/cover;
+  animation: slideIn 1.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .header {
@@ -77,6 +96,19 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   color: var(--primary-color);
   text-align: center;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Login Button */
@@ -96,6 +128,7 @@ body {
 .login-btn:hover {
   background: var(--background-color);
   color: var(--primary-color);
+  transform: scale(1.1);
 }
 
 /* About Section */
@@ -637,4 +670,20 @@ body {
   .contact-info p {
     font-size: 1.8rem;
   }
+}
+
+/* scroll effect */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html {
+  scroll-behavior: smooth;
 }

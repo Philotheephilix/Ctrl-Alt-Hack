@@ -10,7 +10,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="logo">
-            <img src="/images/logo.png" alt="Hackathon Logo" style="height: 100px;width: 100px;"> CTRL+ALT+HACK
+            <img src="/images/logo.png" alt="Hackathon Logo" style="height: 150px;width: 150px;"> CTRL+ALT+HACK
         </div>
         <ul class="nav-links">
             <li><a href="#about" class="nav-link">About</a></li>
@@ -27,27 +27,27 @@
 
         <!-- Countdown Timer -->
         <div class="countdown-container">
-            <h2>Time Left:</h2>
+            <h2>Time Left</h2>
             <div id="countdown-timer">00:00:00</div>
         </div>
     </div>
 
     <!-- About Section -->
     <section id="about" class="about-section hidden">
-        <h2 class="section-title">About the Hackathon</h2>
-        <h2 class="section-title">Innovate & Build — Hack the Retro Way!</h2>
-        <p class="section-text">
+        <h2 class="section-title fade-in">About the Hackathon</h2>
+        <h2 class="section-title fade-in">Innovate & Build — Hack the Retro Way!</h2>
+        <p class="section-text fade-in">
             A 36 Hour InterDepartmental Hackathon <br />
             Date: <strong>20-02-2025 to 22-02-2025</strong>
         </p>
 
         <!-- Prize Pool -->
-        <div class="prize-container">
-            <div class="prizeinner">
-                <img class="prize-pool-image" src="/images/podium.png" alt="Prize Pool" />
-                <h3 class="prize-pool-text">₹25,000 Prize Pool</h3>
+        <div class="prize-container fade-in">
+            <div class="prizeinner fade-in">
+                <img class="prize-pool-image fade-in" src="/images/podium.png" alt="Prize Pool" />
+                <h3 class="prize-pool-text fade-in">₹25,000 Prize Pool</h3>
             </div>
-            <div class="curve-box">
+            <div class="curve-box fade-in">
                 <h4>What You Can Build:</h4>
                 <ul>
                     <li>AI/ML 🤖</li>
@@ -62,19 +62,19 @@
         </div>
 
         <!-- Organized By -->
-        <div class="organized-by">
+        <div class="organized-by fade-in">
             <h3 class="organiser">
                 Organized by Department of CSE in collaboration with IIC
             </h3>
-            <div class="logodiv">
+            <div class="logodiv fade-in">
                 <img src="/images/licet.jpg" alt="LICET Logo" class="licet-logo" />
                 <img src="/images/iic.png" alt="IIC Logo" class="iic-logo" />
             </div>
         </div>
 
         <!-- Sponsors -->
-        <h2 class="section-title">Our Sponsors</h2>
-        <div class="sponsor-boxes">
+        <h2 class="section-title fade-in">Our Sponsors</h2>
+        <div class="sponsor-boxes fade-in">
             <img src="/images/poorvika.png" alt="Poorvika" class="sponsor-img">
             <img src="/images/blackthunder.png" alt="Black Thunder" class="sponsor-img">
             <img src="/images/kaar.jpg" alt="Kaar Technologies" class="sponsor-img">
@@ -151,6 +151,40 @@
                 sections.forEach((section) => section.classList.add("hidden"));
                 sections[index].classList.remove("hidden");
             });
+        });
+
+        // fade in
+        /* Add JavaScript to handle the fade-in effect */
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+          const elements = document.querySelectorAll('.fade-in');
+        
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+              }
+            });
+          });
+        
+          elements.forEach(element => {
+            observer.observe(element);
+          });
         });
     </script>
 </body>

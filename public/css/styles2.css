@@ -25,10 +25,10 @@ body {
 
 /* Navbar */
 .navbar {
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(174, 174, 174, 0.3);
     display: flex;
     justify-content: space-between;
     padding: 15px 30px;
@@ -40,7 +40,7 @@ body {
 .logo {
     font-size: 2rem;
     font-weight: bold;
-    color: #ffdd57;
+    color: #ffffff;
     display: flex;
     align-items: center;
 }
@@ -60,35 +60,38 @@ body {
     margin: 0 15px;
 }
 
+/* Navbar Links */
 .nav-links a {
     color: white;
     text-decoration: none;
     font-size: 1rem;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .nav-links a:hover {
     color: #ffdd57;
+    transform: scale(1.1);
 }
 
 /* Logout Button */
 .logout-btn {
     text-decoration: none;
     color: white;
-    background: #ffdd57;
+    background: #ff0303;
     padding: 10px 18px;
     border-radius: 5px;
-    transition: 0.3s;
+    transition: background 0.3s, transform 0.3s;
 }
 
 .logout-btn:hover {
-    background: #ffab00;
+    background: #970c0c;
+    transform: scale(1.1);
 }
 
 /* Dashboard Container */
 .dashboard-container {
     max-width: 900px;
-    margin: 100px auto;
+    margin: auto;
     padding: 40px;
     text-align: center;
 }
@@ -101,13 +104,13 @@ body {
 
 /* Countdown Timer */
 .countdown-container {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.6);
     padding: 20px;
     border-radius: 8px;
     display: inline-block;
     margin-top: 20px;
-    font-size: 1.8rem;
-    color: #ffdd57;
+    font-size: 2.5rem;
+    color: #000000;
 }
 
 /* About Section */
@@ -222,6 +225,7 @@ body {
     flex-wrap: wrap;
 }
 
+/* Sponsor Images */
 .sponsor-img {
     width: 200px;
     height: 200px;
@@ -230,21 +234,29 @@ body {
     background: white;
     padding: 10px;
     border: 2px solid #ffdd57;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
 }
 
 .sponsor-img:hover {
     transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Submission & Feedback Sections */
+/* Section Fade-In */
 section {
     margin: 50px auto;
     width: 80%;
     max-width: 800px;
     padding: 30px;
     border-radius: 10px;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out, transform 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hidden {
@@ -360,3 +372,16 @@ section {
         font-size: 1.2rem;
     }
 }
+
+/* fade in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  

@@ -28,7 +28,7 @@
             </div>
         </header>
 
-        <section class="about">
+        <section class="about fade-in">
             <h2 class="section-title">Innovate & Build — Hack the Retro Way!</h2>
             <p class="section-text">
                 A 60 Hour InterDepartmental Hackathon <br />
@@ -57,17 +57,17 @@
 
         <section class="sponsors">
             <div class="organized-by">
-                <h3 class="organiser">
+                <h3 class="organiser fade-in">
                     Organized by Department of CSE in collaboration with IIC
                 </h3>
-                <div class="logodiv">
+                <div class="logodiv fade-in">
                     <img src="/images/licet.jpg" alt="LICET Logo" class="licet-logo" />
                     <img src="/images/iic.png" alt="IIC Logo" class="iic-logo" />
                 </div>
             </div>
 
-            <h2 class="section-title">Our Sponsors</h2>
-            <div class="sponsor-boxes">
+            <h2 class="section-title fade-in">Our Sponsors</h2>
+            <div class="sponsor-boxes fade-in">
                 <img src="/images/poorvika.png" alt="Poorvika" class="sponsor-img">
                 <img src="/images/blackthunder.png" alt="Black Thunder" class="sponsor-img">
                 <img src="/images/kaar.jpg" alt="Kaar Technologies" class="sponsor-img">
@@ -101,6 +101,23 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
+
+        // scroll
+                document.addEventListener('DOMContentLoaded', function() {
+          const elements = document.querySelectorAll('.fade-in');
+        
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+              }
+            });
+          });
+        
+          elements.forEach(element => {
+            observer.observe(element);
+          });
+        });
     </script>
 </body>
 </html>
