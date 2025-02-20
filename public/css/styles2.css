@@ -335,6 +335,27 @@ section {
         align-items: center;
     }
     .nav-links {
+        margin-top: 10px;
+    }
+    .dashboard-container h1 {
+        font-size: 1.5rem;
+    }
+    .countdown-container {
+        font-size: 1rem;
+    }
+    section {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-links {
         flex-direction: column; /* Change to column layout */
         align-items: center; /* Center align items */
         margin-top: 10px;
@@ -351,27 +372,6 @@ section {
     section {
         width: 95%;
         padding: 15px;
-    }
-}
-
-/* Small devices (tablets, 576px and up) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-    }
-    .nav-links {
-        margin-top: 10px;
-    }
-    .dashboard-container h1 {
-        font-size: 1.8rem;
-    }
-    .countdown-container {
-        font-size: 1.2rem;
-    }
-    section {
-        width: 90%;
-        padding: 20px;
     }
 }
 
