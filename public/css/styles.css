@@ -161,39 +161,33 @@ body {
     margin: 5px 0;
   }
   
-  /* Sponsors Section */
-  .sponsors {
-    min-height: 100vh;
-    padding: 50px;
-  }
-  
-  .sponsor-boxes {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-  }
-  
-  .sponsor-box {
-    width: 200px;
-    height: 200px;
-    background: white;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-radius: 15px;
-    transition: transform 0.3s ease-in-out;
-    object-fit: cover;
-    background-size: cover;
-    background-position: center;
-    border:2px solid white
-  }
-  
-  .sponsor-box:hover {
-    transform: scale(1.1);
-  }
+/* Sponsors Section */
+.sponsors {
+  min-height: 100vh;
+  padding: 50px;
+}
+
+.sponsor-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap; /* Added for better responsiveness */
+}
+
+.sponsor-img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain; /* Ensures the image fits properly */
+  background: white; /* Adds a white background */
+  border-radius: 15px;
+  border: 2px solid #ffdd57; /* Adds a border */
+  padding: 10px; /* Adds some padding */
+  transition: transform 0.3s ease-in-out;
+}
+
+.sponsor-img:hover {
+  transform: scale(1.1);
+}
   
   .organiser{
     font-size: 5rem;
