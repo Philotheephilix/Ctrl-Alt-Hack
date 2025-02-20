@@ -14,6 +14,13 @@ body {
     color: white;
     text-align: center;
     padding-top: 60px;
+    background-image: url('/images/pixel.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* Navbar */
@@ -27,6 +34,7 @@ body {
     padding: 15px 30px;
     align-items: center;
     z-index: 1000;
+    height: 80px;
 }
 
 .logo {
@@ -38,7 +46,8 @@ body {
 }
 
 .logo img {
-    width: 70px;
+    width: 100px;  /* Increase size */
+    height: 100px;
     margin-right: 10px;
 }
 
@@ -62,6 +71,7 @@ body {
     color: #ffdd57;
 }
 
+/* Logout Button */
 .logout-btn {
     text-decoration: none;
     color: white;
@@ -77,32 +87,19 @@ body {
 
 /* Dashboard Container */
 .dashboard-container {
-    max-width: 900px; /* Adjust width as needed */
-    margin: 140px auto; /* Centers horizontally */
+    max-width: 900px;
+    margin: 140px auto;
     padding: 40px;
-    text-align: center; /* Centers text inside */
-    /* Optional: Light background for better visibility */
-    border-radius: 10px; /* Optional: Rounded corners */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds slight shadow */
+    text-align: center;
 }
 
-
 .dashboard-container h1 {
-    font-size: 3rem; /* Slightly larger font size */
-    margin-bottom: 20px; /* More spacing below the heading */
+    font-size: 3rem;
+    margin-bottom: 20px;
     color: #ffdd57;
 }
 
-/* Images */
-.hackathon-images img {
-    width: 100%;
-    max-width: 900px;
-    border-radius: 10px;
-    margin: 20px 10px;
-    border: 4px solid #ffdd57;
-}
-
-/* Countdown Container */
+/* Countdown Timer */
 .countdown-container {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
@@ -113,16 +110,146 @@ body {
     color: #ffdd57;
 }
 
-/* Sections */
+/* About Section */
+.about-section {
+    width: 100%;
+    max-width: 100vw;
+    padding: 50px 5%;
+   
+    
+    text-align: center;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.section-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Prize & Categories */
+.prize-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.prize-pool-image {
+    max-width: 45%;
+    margin-top: 10px;
+}
+
+.prize-pool-text {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.curve-box {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    color: white;
+    width: 40%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.curve-box h4 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.curve-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.curve-box li {
+    font-size: 1.5rem;
+    margin: 5px 0;
+}
+
+/* Organized By Section */
+.organized-by {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.organiser{
+    font-size: 2.5rem;
+  }
+  .organisertext{
+    font-size: 4rem;
+    font-weight: 800;
+  }
+
+.logodiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.licet-logo,
+.iic-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+/* Sponsors Section */
+.sponsors {
+    min-height: 100vh;
+    padding: 50px;
+  }
+  
+  .sponsor-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .sponsor-box {
+    width: 200px;
+    height: 200px;
+    background: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    border:2px solid white
+  }
+  
+  .sponsor-box:hover {
+    transform: scale(1.1);
+  }
+
+/* Submission & Feedback Sections */
 section {
     margin: 50px auto;
     width: 80%;
     max-width: 800px;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     transition: opacity 0.5s ease-in-out;
-    border: 2px solid #ffdd57;
 }
 
 .hidden {
@@ -134,9 +261,9 @@ section {
 .submission-form {
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .submission-form label {
@@ -173,15 +300,24 @@ section {
 }
 
 /* Feedback Section */
+.feedback-section {
+    background: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    padding: 30px; /* Add more padding for better spacing */
+}
+
 .feedback-section textarea {
     width: 100%;
-    padding: 12px;
+    height: 200px; /* Increase height for a bigger box */
+    padding: 16px; /* Increase padding for better text visibility */
     margin-top: 10px;
-    border-radius: 5px;
+    border-radius: 8px; /* Slightly more rounded edges */
     background: #fff;
-    font-size: 1rem;
+    font-size: 1.5rem; /* Make text larger */
     color: #333;
+    resize: vertical; /* Allow resizing */
 }
+
 
 .feedback-btn {
     margin-top: 15px;
@@ -197,7 +333,7 @@ section {
     background: #ffab00;
 }
 
-/* Media Queries */
+/* Responsive Styles */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
