@@ -6,6 +6,8 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import pkg from 'pg';
 const { Client } = pkg;
+import dns from 'node:dns';
+dns.setDefaultResultOrder('ipv4first');
 
 dotenv.config();
 
