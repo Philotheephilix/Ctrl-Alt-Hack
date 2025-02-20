@@ -39,13 +39,13 @@ app.use(
 );
 
 // Serve static files (CSS, JS, images) from "public"
-// app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Set views directory for EJS templates
-app.use(express.static("public"));
-app.set("views", path.join(__dirname, "views"));
+// app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use(passport.initialize());
