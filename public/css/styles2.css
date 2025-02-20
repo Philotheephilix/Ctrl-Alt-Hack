@@ -212,35 +212,30 @@ body {
 .sponsors {
     min-height: 100vh;
     padding: 50px;
-  }
-  
-  .sponsor-boxes {
+}
+
+/* Sponsors Section */
+.sponsor-boxes {
     display: flex;
     justify-content: center;
     gap: 30px;
-  }
+    flex-wrap: wrap;
+}
 
-  .sponsor-box {
+.sponsor-img {
     width: 200px;
     height: 200px;
-    background: white;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: bold;
+    object-fit: contain;
     border-radius: 15px;
+    background: white;
+    padding: 10px;
+    border: 2px solid #ffdd57;
     transition: transform 0.3s ease-in-out;
-    object-fit: cover;
-    background-size: cover;
-    background-position: center;
-    border:2px solid white
-  }
-  
-  .sponsor-box:hover {
+}
+
+.sponsor-img:hover {
     transform: scale(1.1);
-  }
+}
 
 /* Submission & Feedback Sections */
 section {
