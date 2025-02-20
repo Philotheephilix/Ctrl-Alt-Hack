@@ -240,120 +240,400 @@ body {
   margin-top: 5%;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .subtitle {
-      font-size: 1.6rem;
-  }
+/* Media Queries for All Devices */
 
+/* Extra small devices (phones, 600px and down) */
+@media (max-width: 600px) {
   .title {
-      font-size: 3.5rem;
-  }
-
-  .countdown-title {
-      font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .countdown {
-      font-size: 3rem;
-      padding: 15px 30px;
+    font-size: 2.5rem;
+    padding: 10px 20px;
+    border-radius: 8px;
   }
 
   .login-btn {
-      font-size: 1.2rem;
-      padding: 12px 30px;
+    font-size: 1rem;
+    padding: 10px 20px;
   }
 
   .section-title {
-      font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .section-text {
-      font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .prize-container {
-      flex-direction: column;
-      gap: 30px;
+    flex-direction: column;
+    gap: 20px;
   }
 
   .prize-pool-image {
-      max-width: 80%;
+    max-width: 90%;
   }
 
   .prize-pool-text {
-      font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .curve-box {
-      width: 90%;
-      padding: 15px;
+    width: 95%;
+    padding: 10px;
   }
 
   .curve-box h4 {
-      font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .curve-box li {
-      font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   .sponsors {
-      padding: 30px;
+    padding: 20px;
   }
 
   .sponsor-boxes {
-      flex-wrap: wrap;
-      gap: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
   }
 
   .sponsor-box {
-      width: 150px;
-      height: 150px;
+    width: 120px;
+    height: 120px;
   }
 
   .organized-by {
-      flex-direction: column;
-      text-align: center;
-      font-size: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.2rem;
   }
 
   .organisertext {
-      font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .licet-logo,
   .iic-logo {
-      width: 100px;
-      height: 100px;
+    width: 80px;
+    height: 80px;
   }
 
   .logodiv {
-      gap: 20px;
+    gap: 15px;
   }
 
   .contact-info {
-      width: 90%;
-      padding: 15px;
+    width: 95%;
+    padding: 10px;
   }
 
   .contact-info h3 {
-      font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .contact-info p {
-      font-size: 1.4rem;
+    font-size: 1.2rem;
   }
+}
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (min-width: 600px) and (max-width: 768px) {
   .title {
-      font-size: 3rem;
-      word-wrap: break-word;
-      text-align: center;
+    font-size: 3rem;
   }
 
   .countdown {
-      font-size: 3rem;
-      padding: 15px 30px;
-      border-radius: 10px;
+    font-size: 3rem;
+    padding: 15px 30px;
+    border-radius: 10px;
+  }
+
+  .login-btn {
+    font-size: 1.2rem;
+    padding: 12px 30px;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .section-text {
+    font-size: 1.8rem;
+  }
+
+  .prize-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .prize-pool-image {
+    max-width: 80%;
+  }
+
+  .prize-pool-text {
+    font-size: 3rem;
+  }
+
+  .curve-box {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .curve-box h4 {
+    font-size: 1.8rem;
+  }
+
+  .curve-box li {
+    font-size: 1.4rem;
+  }
+
+  .sponsors {
+    padding: 30px;
+  }
+
+  .sponsor-boxes {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .sponsor-box {
+    width: 150px;
+    height: 150px;
+  }
+
+  .organized-by {
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .organisertext {
+    font-size: 2rem;
+  }
+
+  .licet-logo,
+  .iic-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logodiv {
+    gap: 20px;
+  }
+
+  .contact-info {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .contact-info h3 {
+    font-size: 2rem;
+  }
+
+  .contact-info p {
+    font-size: 1.4rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 992px) {
+  .title {
+    font-size: 4rem;
+  }
+
+  .countdown {
+    font-size: 4rem;
+    padding: 20px 35px;
+    border-radius: 12px;
+  }
+
+  .login-btn {
+    font-size: 1.3rem;
+    padding: 13px 35px;
+  }
+
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .section-text {
+    font-size: 2rem;
+  }
+
+  .prize-container {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .prize-pool-image {
+    max-width: 70%;
+  }
+
+  .prize-pool-text {
+    font-size: 3.5rem;
+  }
+
+  .curve-box {
+    width: 85%;
+    padding: 18px;
+  }
+
+  .curve-box h4 {
+    font-size: 2rem;
+  }
+
+  .curve-box li {
+    font-size: 1.5rem;
+  }
+
+  .sponsors {
+    padding: 40px;
+  }
+
+  .sponsor-boxes {
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  .sponsor-box {
+    width: 170px;
+    height: 170px;
+  }
+
+  .organized-by {
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.7rem;
+  }
+
+  .organisertext {
+    font-size: 2.5rem;
+  }
+
+  .licet-logo,
+  .iic-logo {
+    width: 110px;
+    height: 110px;
+  }
+
+  .logodiv {
+    gap: 25px;
+  }
+
+  .contact-info {
+    width: 85%;
+    padding: 18px;
+  }
+
+  .contact-info h3 {
+    font-size: 2.2rem;
+  }
+
+  .contact-info p {
+    font-size: 1.5rem;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 992px) {
+  .title {
+    font-size: 5rem;
+  }
+
+  .countdown {
+    font-size: 4.5rem;
+    padding: 25px 40px;
+    border-radius: 15px;
+  }
+
+  .login-btn {
+    font-size: 1.5rem;
+    padding: 15px 40px;
+  }
+
+  .section-title {
+    font-size: 3.5rem;
+  }
+
+  .section-text {
+    font-size: 2.5rem;
+  }
+
+  .prize-container {
+    flex-direction: row;
+    gap: 50px;
+  }
+
+  .prize-pool-image {
+    max-width: 45%;
+  }
+
+  .prize-pool-text {
+    font-size: 4rem;
+  }
+
+  .curve-box {
+    width: 40%;
+    padding: 20px;
+  }
+
+  .curve-box h4 {
+    font-size: 2rem;
+  }
+
+  .curve-box li {
+    font-size: 1.5rem;
+  }
+
+  .sponsors {
+    padding: 50px;
+  }
+
+  .sponsor-boxes {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .sponsor-box {
+    width: 200px;
+    height: 200px;
+  }
+
+  .organized-by {
+    flex-direction: column;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .organisertext {
+    font-size: 3rem;
+  }
+
+  .licet-logo,
+  .iic-logo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .logodiv {
+    gap: 30px;
+  }
+
+  .contact-info {
+    width: 80%;
+    padding: 20px;
+  }
+
+  .contact-info h3 {
+    font-size: 2.5rem;
+  }
+
+  .contact-info p {
+    font-size: 1.8rem;
   }
 }
