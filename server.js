@@ -18,7 +18,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
-const _dirname = path.dirname(_filename);
+const __dirname = path.dirname(__filename);
 
 // app.set("view engine", "ejs");
 
@@ -39,11 +39,11 @@ app.use(
 );
 
 // Serve static files (CSS, JS, images) from "public"
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
 
 // Set views directory for EJS templates
 app.set("views", path.join(__dirname, "views"));
-// app.use(express.static("public"));
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
