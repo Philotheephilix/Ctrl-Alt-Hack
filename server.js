@@ -16,7 +16,7 @@ const port = process.env.PORT || 3000;
 
 // Database Connection (Supabase/PostgreSQL) - COMMENTED OUT
 const db = new Client({
-  connectionString: process.env.SUPABASE_URL,
+  connectionString: process.env.SUPABASE_SESSION_POOLER,
   ssl: { rejectUnauthorized: false },
 });
 db.connect();
