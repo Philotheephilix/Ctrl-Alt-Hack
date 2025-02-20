@@ -15,14 +15,13 @@
         <button class="login-btn"><a href="/auth/google" style="text-decoration: none;">Login</a></button>
       </div>
 
-
       <div class="countdown-wrapper">
         <h3 class="countdown-title">System Booting... Hackathon Begins In:</h3>
         <div class="countdown">
-          <span id="days"><%= countdown.days %></span>d
-          <span id="hours"><%= countdown.hours %></span>h
-          <span id="minutes"><%= countdown.minutes %></span>m
-          <span id="seconds"><%= countdown.seconds %></span>s
+          <span id="days"></span>d
+          <span id="hours"></span>h
+          <span id="minutes"></span>m
+          <span id="seconds"></span>s
         </div>
       </div>
     </div>
@@ -72,33 +71,34 @@
         <div class="sponsor-box" style="background-image: url('/images/kaar.jpg')"></div>
         <div class="sponsor-box" style="background-image: url('/images/xyz.png')"></div>
       </div>
-
-      <div class="footercenter">
-        <div class="contact-info">
-          <h3>Contact Us</h3>
-          <p><strong>Name:</strong> Sairam M R</p>
-          <p><strong>Phone:</strong> +91 93421 99098</p>
-          <p><strong>Email:</strong> sairam.26csb@licet.ac.in</p>
-        </div>
-      </div>
     </section>
   </div>
 
   <script>
     function updateCountdown() {
-      fetch("/")
-        .then(response => response.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, "text/html");
-          document.getElementById("days").innerText = doc.getElementById("days").innerText;
-          document.getElementById("hours").innerText = doc.getElementById("hours").innerText;
-          document.getElementById("minutes").innerText = doc.getElementById("minutes").innerText;
-          document.getElementById("seconds").innerText = doc.getElementById("seconds").innerText;
-        });
-    }
+      const eventDate = new Date();
+      eventDate.setHours(10, 10, 0, 0);
+      const now = new Date();
+      const timeDifference = eventDate - now;
+      
+      if (timeDifference <= 0) {
+        document.querySelector(".countdown").innerHTML = "Hackathon Started!";
+        return;
+      }
+      
+      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }
+    
     setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 </body>
 </html>
