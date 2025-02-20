@@ -1,166 +1,170 @@
 /* General Styles */
+:root {
+  --primary-color: white;
+  --secondary-color: rgba(255, 255, 255, 0.1);
+  --background-color: black;
+  --border-color: #ffdd57;
+  --font-family: 'Courier New', Courier, monospace;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Courier New', Courier, monospace;
-    background-image: url('/images/pixel.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: white;
-    text-align: center;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-  
-  /* Landing Page */
-  .container {
-    position: relative;
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: url('/images/bg.jpg') no-repeat center center/cover;
-  }
-  
-  .header {
-    position: absolute;
-    top: 5%;
-    width: 100%;
-  }
-  
-  .subtitle {
-    font-size: 2rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
-  
-  .title {
-    font-size: 5rem;
-    font-weight: bold;
-    margin-top: 15px;
-    text-transform: uppercase;
-  }
-  
-  /* Countdown */
-  .countdown-wrapper {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-  }
-  
-  .countdown-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
-  
-  .countdown {
-    font-size: 4.5rem;
-    font-weight: bold;
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
-    padding: 25px 40px;
-    border-radius: 15px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px); /* Glass blur effect */
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    color: white;
-    text-align: center;
-  }
-  
-  
-  /* Login Button */
-  .login-btn {
-    padding: 15px 40px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    background: transparent;
-    border: 3px solid black;
-    border-radius: 10px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    margin-bottom: 20px;
-  }
-  
-  .login-btn:hover {
-    background: black;
-    color: white;
-  }
-  
-  /* About Section */
-  .about {
-    min-height: 100vh;
-    padding: 50px;
-    
-  }
-  
-  .section-title {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .section-text {
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
-  
-  /* Prize Pool & Curve Box in Horizontal Line */
-  .prize-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-  }
-  
-  .prize-pool-image {
-    max-width: 45%;
-    margin-top: 10px;
-  }
-  
-  .prize-pool-text {
-    font-size: 4rem;
-    font-weight: bold;
-  }
-  
-  .curve-box {
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    color: white;
-    width: 40%;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: 5%;;
-  }
-  
-  .curve-box h4 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  .curve-box ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .curve-box li {
-    font-size: 1.5rem;
-    margin: 5px 0;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-image: url('/images/pixel.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--primary-color);
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: url('/images/bg.jpg') no-repeat center center/cover;
+}
+
+.header {
+  position: absolute;
+  top: 5%;
+  width: 100%;
+}
+
+.subtitle {
+  font-size: 2rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-top: 15px;
+  text-transform: uppercase;
+}
+
+/* Countdown */
+.countdown-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.countdown-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.countdown {
+  font-size: 4.5rem;
+  font-weight: bold;
+  background: var(--secondary-color);
+  padding: 25px 40px;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: var(--primary-color);
+  text-align: center;
+}
+
+/* Login Button */
+.login-btn {
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: transparent;
+  border: 3px solid var(--background-color);
+  border-radius: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.login-btn:hover {
+  background: var(--background-color);
+  color: var(--primary-color);
+}
+
+/* About Section */
+.about {
+  min-height: 100vh;
+  padding: 50px;
+}
+
+.section-title {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.section-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Prize Pool & Curve Box in Horizontal Line */
+.prize-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.prize-pool-image {
+  max-width: 45%;
+  margin-top: 10px;
+}
+
+.prize-pool-text {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.curve-box {
+  padding: 20px;
+  background: var(--secondary-color);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  color: var(--primary-color);
+  width: 40%;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5%;
+}
+
+.curve-box h4 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.curve-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.curve-box li {
+  font-size: 1.5rem;
+  margin: 5px 0;
+}
+
 /* Sponsors Section */
 .sponsors {
   min-height: 100vh;
@@ -171,195 +175,185 @@ body {
   display: flex;
   justify-content: center;
   gap: 30px;
-  flex-wrap: wrap; /* Added for better responsiveness */
+  flex-wrap: wrap;
 }
 
 .sponsor-img {
   width: 200px;
   height: 200px;
-  object-fit: contain; /* Ensures the image fits properly */
-  background: white; /* Adds a white background */
+  object-fit: contain;
+  background: var(--primary-color);
   border-radius: 15px;
-  border: 2px solid #ffdd57; /* Adds a border */
-  padding: 10px; /* Adds some padding */
+  border: 2px solid var(--border-color);
+  padding: 10px;
   transition: transform 0.3s ease-in-out;
 }
 
 .sponsor-img:hover {
   transform: scale(1.1);
 }
-  
-  .organiser{
-    font-size: 5rem;
-  }
-  .organisertext{
-    font-size: 4rem;
-    font-weight: 800;
-  }
-  .prizeinner{
-    position: relative;
-    top:25px;
-  }
-  .licet-logo{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-top: 20px;
-  }
-  .logodiv{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:50px;
-  }
-  .contact-info>*{
-    font-size: 2rem;
-  }
-  .contact-info{
-    border: 2px solid white;
-    width:39%;
-    margin-top:30px;
-    border-radius: 30px;
-    
-  
-  }
-  .footercenter{
-    width:100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5%;
-   
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    /* Adjust header */
-    .subtitle {
+
+.organiser {
+  font-size: 5rem;
+}
+
+.organisertext {
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+.prizeinner {
+  position: relative;
+  top: 25px;
+}
+
+.licet-logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.logodiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.contact-info > * {
+  font-size: 2rem;
+}
+
+.contact-info {
+  border: 2px solid var(--primary-color);
+  width: 39%;
+  margin-top: 30px;
+  border-radius: 30px;
+}
+
+.footercenter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .subtitle {
       font-size: 1.6rem;
-    }
-  
-    .title {
+  }
+
+  .title {
       font-size: 3.5rem;
-    }
-  
-    /* Countdown Timer */
-    .countdown-title {
+  }
+
+  .countdown-title {
       font-size: 2rem;
-    }
-  
-    .countdown {
+  }
+
+  .countdown {
       font-size: 3rem;
       padding: 15px 30px;
-    }
-  
-    /* Login Button */
-    .login-btn {
+  }
+
+  .login-btn {
       font-size: 1.2rem;
       padding: 12px 30px;
-    }
-  
-    /* About Section */
-    .section-title {
+  }
+
+  .section-title {
       font-size: 2.5rem;
-    }
-  
-    .section-text {
+  }
+
+  .section-text {
       font-size: 1.8rem;
-    }
-  
-    /* Prize Pool & Curve Box in Column for Mobile */
-    .prize-container {
+  }
+
+  .prize-container {
       flex-direction: column;
       gap: 30px;
-    }
-  
-    .prize-pool-image {
+  }
+
+  .prize-pool-image {
       max-width: 80%;
-    }
-  
-    .prize-pool-text {
+  }
+
+  .prize-pool-text {
       font-size: 3rem;
-    }
-  
-    .curve-box {
+  }
+
+  .curve-box {
       width: 90%;
       padding: 15px;
-    }
-  
-    .curve-box h4 {
+  }
+
+  .curve-box h4 {
       font-size: 1.8rem;
-    }
-  
-    .curve-box li {
+  }
+
+  .curve-box li {
       font-size: 1.4rem;
-    }
-  
-    /* Sponsors Section */
-    .sponsors {
+  }
+
+  .sponsors {
       padding: 30px;
-    }
-  
-    .sponsor-boxes {
+  }
+
+  .sponsor-boxes {
       flex-wrap: wrap;
       gap: 20px;
-    }
-  
-    .sponsor-box {
+  }
+
+  .sponsor-box {
       width: 150px;
       height: 150px;
-    }
-  
-    /* Organized By Section */
-    .organized-by {
+  }
+
+  .organized-by {
       flex-direction: column;
       text-align: center;
       font-size: 1.5rem;
-    }
-  
-    .organisertext {
+  }
+
+  .organisertext {
       font-size: 2rem;
-    }
-  
-    .licet-logo, .iic-logo {
+  }
+
+  .licet-logo,
+  .iic-logo {
       width: 100px;
       height: 100px;
-    }
-  
-    .logodiv {
+  }
+
+  .logodiv {
       gap: 20px;
-    }
-  
-    /* Contact Info */
-    .contact-info {
+  }
+
+  .contact-info {
       width: 90%;
       padding: 15px;
-    }
-  
-    .contact-info h3 {
-      font-size: 2rem;
-    }
-  
-    .contact-info p {
-      font-size: 1.4rem;
-    }
-  
-    .title {
-      font-size: 3rem; /* Reduced from 5rem */
-      font-weight: bold;
-      margin-top: 15px;
-      text-transform: uppercase;
-      word-wrap: break-word; /* Ensures wrapping */
-      text-align: center;
-    }
-    
-    /* Countdown Fix */
-    .countdown {
-      font-size: 3rem; /* Reduced from 4.5rem */
-      padding: 15px 30px; /* Reduced padding */
-      border-radius: 10px; /* Adjusted for a more compact look */
-    }
   }
-  /* Title Fix */
-  
-  
+
+  .contact-info h3 {
+      font-size: 2rem;
+  }
+
+  .contact-info p {
+      font-size: 1.4rem;
+  }
+
+  .title {
+      font-size: 3rem;
+      word-wrap: break-word;
+      text-align: center;
+  }
+
+  .countdown {
+      font-size: 3rem;
+      padding: 15px 30px;
+      border-radius: 10px;
+  }
+}

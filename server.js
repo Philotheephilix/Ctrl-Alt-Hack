@@ -83,7 +83,7 @@ passport.deserializeUser((user, done) => {
 
 // Routes
 app.get("/", (req, res) => {
-  const eventTime = new Date("2025-02-22T00:00:00").getTime();
+  const eventTime = new Date("2025-02-22T13:00:00").getTime();
   const now = new Date().getTime();
   const difference = eventTime - now;
 

@@ -1,105 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ctrl+Alt+Hack</title>
-  <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ctrl+Alt+Hack</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <div class="main-container">
-    <div class="container">
-      <div class="header">
-        <h2 class="subtitle">Department of CSE Presents</h2>
-        <h1 class="title">Ctrl+Alt+Hack</h1>
-        <button class="login-btn"><a href="/auth/google" style="text-decoration: none;">Login</a></button>
-      </div>
+    <div class="main-container">
+        <header class="container">
+            <div class="header">
+                <h2 class="subtitle">Department of CSE Presents</h2>
+                <h1 class="title">Ctrl+Alt+Hack</h1>
+                <button class="login-btn">
+                    <a href="/auth/google" style="text-decoration: none;">Login</a>
+                </button>
+            </div>
 
-      <div class="countdown-wrapper">
-        <h3 class="countdown-title">System Booting... Hackathon Begins In:</h3>
-        <div class="countdown">
-          <span id="days"></span>d
-          <span id="hours"></span>h
-          <span id="minutes"></span>m
-          <span id="seconds"></span>s
-        </div>
-      </div>
+            <div class="countdown-wrapper">
+                <h3 class="countdown-title">System Booting... Hackathon Begins In:</h3>
+                <div class="countdown">
+                    <span id="days"></span>d
+                    <span id="hours"></span>h
+                    <span id="minutes"></span>m
+                    <span id="seconds"></span>s
+                </div>
+            </div>
+        </header>
+
+        <section class="about">
+            <h2 class="section-title">Innovate & Build — Hack the Retro Way!</h2>
+            <p class="section-text">
+                A 60 Hour InterDepartmental Hackathon <br />
+                Date: <strong>20-02-2025 to 22-02-2025</strong>
+            </p>
+
+            <div class="prize-container">
+                <div class="prizeinner">
+                    <img class="prize-pool-image" src="/images/podium.png" alt="Prize Pool" />
+                    <h3 class="prize-pool-text">₹25,000 Prize Pool</h3>
+                </div>
+                <div class="curve-box">
+                    <h4>What You Can Build:</h4>
+                    <ul>
+                        <li>AI/ML🤖</li>
+                        <li>Web3 & Blockchain🪙</li>
+                        <li>Cybersecurity🧑‍💻</li>
+                        <li>IoT & Robotics📲</li>
+                        <li>Game Development🎮</li>
+                        <li>Fintech🏦</li>
+                        <li>HealthTech🏥</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="sponsors">
+            <div class="organized-by">
+                <h3 class="organiser">
+                    Organized by Department of CSE in collaboration with IIC
+                </h3>
+                <div class="logodiv">
+                    <img src="/images/licet.jpg" alt="LICET Logo" class="licet-logo" />
+                    <img src="/images/iic.png" alt="IIC Logo" class="iic-logo" />
+                </div>
+            </div>
+
+            <h2 class="section-title">Our Sponsors</h2>
+            <div class="sponsor-boxes">
+                <img src="/images/poorvika.png" alt="Poorvika" class="sponsor-img">
+                <img src="/images/blackthunder.png" alt="Black Thunder" class="sponsor-img">
+                <img src="/images/kaar.jpg" alt="Kaar Technologies" class="sponsor-img">
+                <img src="/images/xyz.png" alt="XYZ Corp" class="sponsor-img">
+            </div>
+        </section>
     </div>
 
-    <section class="about">
-      <h2 class="section-title">Innovate & Build — Hack the Retro Way!</h2>
-      <p class="section-text">
-        A 60 Hour InterDepartmental Hackathon <br />
-        Date: <strong>20-02-2025 to 22-02-2025</strong>
-      </p>
-      
-      <div class="prize-container">
-        <div class="prizeinner">
-          <img class="prize-pool-image" src="/images/podium.png" alt="Prize Pool" />
-          <h3 class="prize-pool-text">₹25,000 Prize Pool</h3>
-        </div>
-        <div class="curve-box">
-          <h4>What You Can Build:</h4>
-          <ul>
-            <li>AI/ML🤖</li>
-            <li>Web3 & Blockchain🪙</li>
-            <li>Cybersecurity🧑‍💻</li>
-            <li>IoT & Robotics📲</li>
-            <li>Game Development🎮</li>
-            <li>Fintech🏦</li>
-            <li>HealthTech🏥</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <script>
+        function updateCountdown() {
+            const eventDate = new Date();
+            eventDate.setHours(10, 10, 0, 0);
+            const now = new Date();
+            const timeDifference = eventDate - now;
 
-    <section class="sponsors">
-      <div class="organized-by">
-        <h3 class="organiser">
-          Organized by Department of CSE in collaboration with IIC
-        </h3>
-        <div class="logodiv">
-          <img src="/images/licet.jpg" alt="LICET Logo" class="licet-logo" />
-          <img src="/images/iic.png" alt="IIC Logo" class="iic-logo" />
-        </div>
-      </div>
+            if (timeDifference <= 0) {
+                document.querySelector(".countdown").innerHTML = "Hackathon Started!";
+                return;
+            }
 
-      <!-- Sponsors Section -->
-      <h2 class="section-title">Our Sponsors</h2>
-      <div class="sponsor-boxes">
-          <img src="/images/poorvika.png" alt="Poorvika" class="sponsor-img">
-          <img src="/images/blackthunder.png" alt="Black Thunder" class="sponsor-img">
-          <img src="/images/kaar.jpg" alt="Kaar Technologies" class="sponsor-img">
-          <img src="/images/xyz.png" alt="XYZ Corp" class="sponsor-img">
-      </div>
-    </section>
-  </div>
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-  <script>
-    function updateCountdown() {
-      const eventDate = new Date();
-      eventDate.setHours(10, 10, 0, 0);
-      const now = new Date();
-      const timeDifference = eventDate - now;
-      
-      if (timeDifference <= 0) {
-        document.querySelector(".countdown").innerHTML = "Hackathon Started!";
-        return;
-      }
-      
-      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        }
 
-      document.getElementById("days").innerText = days;
-      document.getElementById("hours").innerText = hours;
-      document.getElementById("minutes").innerText = minutes;
-      document.getElementById("seconds").innerText = seconds;
-    }
-    
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 </body>
 </html>
