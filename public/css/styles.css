@@ -11,6 +11,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-family);
+  background-color: #d2151c;
   background-image: url('/images/pixel.png');
   background-size: cover;
   background-position: center;

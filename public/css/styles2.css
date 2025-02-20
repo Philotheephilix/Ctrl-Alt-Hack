@@ -328,8 +328,8 @@ section {
     background: #ffab00;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
     .navbar {
         flex-direction: column;
         align-items: center;
@@ -338,10 +338,31 @@ section {
         margin-top: 10px;
     }
     .dashboard-container h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .countdown-container {
-        font-size: 1.5rem;
+        font-size: 1rem;
+    }
+    section {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+/* Small devices (tablets, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-links {
+        margin-top: 10px;
+    }
+    .dashboard-container h1 {
+        font-size: 1.8rem;
+    }
+    .countdown-container {
+        font-size: 1.2rem;
     }
     section {
         width: 90%;
@@ -349,14 +370,65 @@ section {
     }
 }
 
-@media (max-width: 480px) {
-    .nav-links li {
-        margin: 0 10px;
+/* Medium devices (desktops, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+    }
+    .nav-links {
+        margin-top: 0;
     }
     .dashboard-container h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     .countdown-container {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+    }
+    section {
+        width: 85%;
+        padding: 25px;
+    }
+}
+
+/* Large devices (large desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+    }
+    .nav-links {
+        margin-top: 0;
+    }
+    .dashboard-container h1 {
+        font-size: 2.5rem;
+    }
+    .countdown-container {
+        font-size: 1.8rem;
+    }
+    section {
+        width: 80%;
+        padding: 30px;
+    }
+}
+
+/* Extra large devices (larger desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+    }
+    .nav-links {
+        margin-top: 0;
+    }
+    .dashboard-container h1 {
+        font-size: 3rem;
+    }
+    .countdown-container {
+        font-size: 2rem;
+    }
+    section {
+        width: 75%;
+        padding: 35px;
     }
 }
