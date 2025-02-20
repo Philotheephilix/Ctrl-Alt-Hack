@@ -170,15 +170,7 @@ app.post("/feedback", async (req, res) => {
   const email = req.user.emails[0].value;
 
   try {
-    // Check if the team already submitted
-    const result = await db.query(
-      "SELECT * FROM feedback WHERE email = $1",
-      [email]
-    );
-    if (result.rows.length > 0) {
-      return res.status(400).json({ error: "Feedback already submitted" });
-    }
-    // Insert new feedback if no duplicate found
+    // Insert new feedback
     await db.query("INSERT INTO feedback (username, email, content) VALUES ($1, $2, $3)", [username, email, content]);
     res.redirect("/dashboard");
   } catch (err) {
